@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
+import { HeroSection } from "@/components/HeroSection";
 import {
   calculateEstimate,
   type PropertyType,
@@ -44,38 +45,15 @@ export default function Home() {
     <div className="min-h-screen flex flex-col bg-[#FBF9F5]">
       <Navbar />
 
-      <main className="flex-1 max-w-6xl mx-auto px-4 sm:px-6 py-12 w-full">
-        {/* Foundation Hero Intro */}
-        <section className="text-center max-w-3xl mx-auto space-y-4 mb-14">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#F3EFE6] border border-[#E5DED3] text-xs font-medium text-[#8F653B]">
-            <Sparkles className="w-3.5 h-3.5 text-[#C89D53]" />
-            <span>Japandi & Modern Luxury Built-in Studio</span>
-          </div>
-          <h1 className="text-3xl sm:text-5xl font-bold tracking-tight text-[#1F1D1A] leading-tight">
-            ประเมินงบประมาณบิวท์อิน
-            <br />
-            <span className="text-[#8F653B]">คอนโดและบ้านของคุณใน 1 นาที</span>
-          </h1>
-          <p className="text-base sm:text-lg text-[#5A554E] max-w-2xl mx-auto leading-relaxed">
-            ระบบคำนวณราคาประเมินสดแบบแม่นยำด้วยสูตรปรับตัวแปรตามพื้นที่จริง
-            (Decoupled Logistics & Scale Matrix) คัดกรองงบชัดเจนก่อนเริ่มงาน
-          </p>
-          <div className="pt-2">
-            <a
-              href="#pricing-playground"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#1F1D1A] text-[#FBF9F5] font-medium text-sm hover:bg-[#332F2A] transition-all shadow-sm"
-            >
-              <span>ทดลองคำนวณราคาสด</span>
-              <ArrowRight className="w-4 h-4 text-[#C89D53]" />
-            </a>
-          </div>
-        </section>
+      <main className="flex-1 w-full">
+        {/* Visual Storytelling Hero Section with Interactive Before/After Slider */}
+        <HeroSection />
 
-        {/* Foundational Pricing Playground */}
-        <section
-          id="pricing-playground"
-          className="bg-white rounded-3xl p-6 sm:p-10 border border-[#EAE4DA] shadow-sm max-w-4xl mx-auto mb-16"
-        >
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 pb-16">
+          <section
+            id="estimator"
+            className="bg-white rounded-3xl p-6 sm:p-10 border border-[#EAE4DA] shadow-sm max-w-4xl mx-auto mb-16"
+          >
           <div className="flex items-center justify-between pb-6 border-b border-[#EAE4DA] mb-8">
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-xl bg-[#F3EFE6] text-[#8F653B] flex items-center justify-center">
@@ -308,6 +286,7 @@ export default function Home() {
             </div>
           </div>
         </section>
+        </div>
       </main>
 
       <Footer />

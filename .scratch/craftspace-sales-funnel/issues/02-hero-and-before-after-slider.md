@@ -4,11 +4,11 @@
 
 **Blocked by:** 01: Foundation and Pricing Engine Tracer Bullet
 
-**Status:** ready-for-agent
+**Status:** closed
 
-- [ ] Hero section renders with Japandi aesthetic, typography, and clear value proposition
-- [ ] Primary CTA button smoothly scrolls the viewport directly to the estimator tool
-- [ ] Before & After slider supports mouse drag on desktop and touch gestures on mobile devices
-- [ ] Touch gestures on the slider do not lock or impede vertical page scrolling on mobile
-- [ ] Aspect ratio is strictly locked to prevent layout shifts (Zero Cumulative Layout Shift)
-- [ ] Visual asset loads progressively with modern image optimization
+- [x] Hero section renders with Japandi aesthetic, typography, and clear value proposition
+- [x] Primary CTA button smoothly scrolls the viewport directly to the estimator tool
+- [x] Before & After slider supports mouse drag on desktop and touch gestures on mobile devices
+- [x] Touch gestures on the slider do not lock or impede vertical page scrolling on mobile
+- [x] Aspect ratio is strictly locked to prevent layout shifts (Zero Cumulative Layout Shift)
+- [x] Visual asset loads progressively with modern image optimization
