@@ -1,18 +1,18 @@
 "use client";
 
-import { useState } from "react";
-import { type EstimatorState } from "./EstimatorWizard";
 import {
-  X,
-  Sparkles,
-  Phone,
-  User,
-  MessageSquare,
-  ShieldCheck,
+  AlertCircle,
   CheckCircle2,
   Loader2,
-  AlertCircle,
+  MessageSquare,
+  Phone,
+  ShieldCheck,
+  Sparkles,
+  User,
+  X,
 } from "lucide-react";
+import { useState } from "react";
+import type { EstimatorState } from "./EstimatorWizard";
 
 export interface LeadSubmissionResponse {
   id: string;
@@ -113,8 +113,8 @@ export function LeadCaptureModal({
     estimatorState.propertyType === "CONDO"
       ? "คอนโดมิเนียม"
       : estimatorState.propertyType === "TOWNHOME"
-      ? "ทาวน์โฮม"
-      : "บ้านเดี่ยว";
+        ? "ทาวน์โฮม"
+        : "บ้านเดี่ยว";
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm animate-in fade-in duration-200">
@@ -184,7 +184,9 @@ export function LeadCaptureModal({
                 onChange={(e) => setCustomerName(e.target.value)}
                 placeholder="เช่น คุณกิตติศักดิ์ วรเมธ"
                 className={`w-full pl-10 pr-4 py-3 text-sm rounded-xl border bg-[#FBF9F5] text-[#1F1D1A] placeholder-[#A8A196] focus:outline-none focus:ring-2 focus:ring-[#8F653B] transition-all ${
-                  errors.customerName ? "border-red-400 bg-red-50/20" : "border-[#EAE4DA]"
+                  errors.customerName
+                    ? "border-red-400 bg-red-50/20"
+                    : "border-[#EAE4DA]"
                 }`}
               />
             </div>
@@ -208,7 +210,9 @@ export function LeadCaptureModal({
                 onChange={(e) => setPhoneNumber(e.target.value)}
                 placeholder="08X-XXX-XXXX"
                 className={`w-full pl-10 pr-4 py-3 text-sm rounded-xl border bg-[#FBF9F5] text-[#1F1D1A] placeholder-[#A8A196] focus:outline-none focus:ring-2 focus:ring-[#8F653B] transition-all ${
-                  errors.phoneNumber ? "border-red-400 bg-red-50/20" : "border-[#EAE4DA]"
+                  errors.phoneNumber
+                    ? "border-red-400 bg-red-50/20"
+                    : "border-[#EAE4DA]"
                 }`}
               />
             </div>
@@ -246,8 +250,7 @@ export function LeadCaptureModal({
           <div className="pt-2 flex items-center gap-2 text-[11px] text-[#7A7368]">
             <ShieldCheck className="w-4 h-4 text-[#8F653B] shrink-0" />
             <span>
-              เราเก็บรักษาข้อมูลของคุณเป็นความลับตามมาตรฐาน PDPA
-              ไม่มีการโทรสแปมรบกวน
+              เราเก็บรักษาข้อมูลของคุณเป็นความลับตามมาตรฐาน PDPA ไม่มีการโทรสแปมรบกวน
             </span>
           </div>
 

@@ -54,7 +54,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="th" className={`${lineSeedSansTH.variable} font-sans scroll-smooth`}>
+    <html
+      lang="th"
+      className={`${lineSeedSansTH.variable} font-sans scroll-smooth`}
+    >
       <body className="font-sans antialiased min-h-screen bg-[#FBF9F5] text-[#1F1D1A] flex flex-col">
         {children}
       </body>

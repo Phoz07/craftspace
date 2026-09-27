@@ -1,21 +1,21 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import QRCode from "qrcode";
-import { type LeadSubmissionResponse } from "./LeadCaptureModal";
 import {
-  X,
+  Check,
   CheckCircle2,
   Copy,
-  Check,
   Download,
   ExternalLink,
-  QrCode,
-  MessageSquare,
-  Sparkles,
-  Smartphone,
   Laptop,
+  MessageSquare,
+  QrCode,
+  Smartphone,
+  Sparkles,
+  X,
 } from "lucide-react";
+import QRCode from "qrcode";
+import { useEffect, useState } from "react";
+import type { LeadSubmissionResponse } from "./LeadCaptureModal";
 
 interface SubmissionSuccessModalProps {
   isOpen: boolean;
@@ -86,8 +86,8 @@ export function SubmissionSuccessModal({
     lead.propertyType === "CONDO"
       ? "คอนโดมิเนียม"
       : lead.propertyType === "TOWNHOME"
-      ? "ทาวน์โฮม"
-      : "บ้านเดี่ยว";
+        ? "ทาวน์โฮม"
+        : "บ้านเดี่ยว";
 
   const slipFilename = `CraftSpace-Slip-${lead.refCode.replace("#", "")}.png`;
 
@@ -148,8 +148,8 @@ export function SubmissionSuccessModal({
           <div className="p-4 rounded-2xl bg-[#FBF9F5] border border-[#EAE4DA] flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs">
             <div>
               <span className="text-[#7A7368] block">
-                {propertyLabel} • {lead.areaSqm} ตร.ม. • เกรด {lead.materialGrade} •{" "}
-                {lead.selectedZones.length} โซน
+                {propertyLabel} • {lead.areaSqm} ตร.ม. • เกรด{" "}
+                {lead.materialGrade} • {lead.selectedZones.length} โซน
               </span>
               <span className="text-base font-bold text-[#1F1D1A] mt-0.5 block">
                 ช่วงงบประเมิน ฿{lead.estimatedMin.toLocaleString()} – ฿
@@ -215,7 +215,8 @@ export function SubmissionSuccessModal({
                   <span>เปิด LINE แชทเพื่อรับสิทธิ์ทันที</span>
                 </a>
                 <p className="text-[11px] text-[#7A7368] text-center">
-                  เมื่อกดเปิด ระบบจะนำคุณเข้าสู่แอป LINE และพิมพ์ข้อความสรุปสเปกให้ทันทีโดยไม่ต้องพิมพ์ซ้ำ
+                  เมื่อกดเปิด ระบบจะนำคุณเข้าสู่แอป LINE
+                  และพิมพ์ข้อความสรุปสเปกให้ทันทีโดยไม่ต้องพิมพ์ซ้ำ
                 </p>
               </div>
             )}
@@ -283,7 +284,9 @@ export function SubmissionSuccessModal({
               <div className="flex items-center gap-1.5">
                 <span>LINE Official ID:</span>
                 <span className="font-bold text-[#1F1D1A]">@craftspace</span>
-                <span className="text-[11px] text-[#A8A196]">(พิมพ์มี @ ด้วยนะครับ)</span>
+                <span className="text-[11px] text-[#A8A196]">
+                  (พิมพ์มี @ ด้วยนะครับ)
+                </span>
               </div>
               <a
                 href="https://line.me/R/ti/p/@craftspace"

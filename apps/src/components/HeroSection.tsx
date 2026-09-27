@@ -1,12 +1,12 @@
-import { BeforeAfterSlider } from "./BeforeAfterSlider";
 import {
-  Sparkles,
   ArrowRight,
-  ShieldCheck,
-  Clock,
-  Star,
   CheckCircle,
+  Clock,
+  ShieldCheck,
+  Sparkles,
+  Star,
 } from "lucide-react";
+import { BeforeAfterSlider } from "./BeforeAfterSlider";
 
 export function HeroSection() {
   return (
@@ -29,8 +29,8 @@ export function HeroSection() {
           </h1>
 
           <p className="text-base sm:text-lg text-[#5A554E] max-w-2xl mx-auto leading-relaxed font-normal">
-            หมดปัญหาผู้รับเหมาทิ้งงานหรืองบบานปลายด้วยระบบคำนวณราคาประเมินสด
-            ชัดเจนโปร่งใส จบงานตรงเวลา พร้อมรับสิทธิสำรวจและวัดพื้นที่หน้างานจริงฟรี
+            หมดปัญหาผู้รับเหมาทิ้งงานหรืองบบานปลายด้วยระบบคำนวณราคาประเมินสด ชัดเจนโปร่งใส
+            จบงานตรงเวลา พร้อมรับสิทธิสำรวจและวัดพื้นที่หน้างานจริงฟรี
           </p>
 
           {/* Call-to-Actions */}

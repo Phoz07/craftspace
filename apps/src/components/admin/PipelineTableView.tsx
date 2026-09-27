@@ -1,22 +1,25 @@
 "use client";
 
-import { useState, useMemo } from "react";
 import {
-  Search,
-  Download,
-  Phone,
-  MessageSquare,
-  FileText,
-  Image as ImageIcon,
-  Copy,
-  Check,
-  Filter,
   Calendar,
-  Layers,
+  Check,
   ChevronDown,
+  Copy,
+  Download,
+  FileText,
+  Filter,
+  Image as ImageIcon,
+  Layers,
+  MessageSquare,
+  Phone,
+  Search,
 } from "lucide-react";
-import { type LeadRecord, type LeadStatus } from "@/lib/db";
-import { buildLineDeepLink, buildLinePrefilledMessage } from "@/lib/lineRouting";
+import { useMemo, useState } from "react";
+import type { LeadRecord, LeadStatus } from "@/lib/db";
+import {
+  buildLineDeepLink,
+  buildLinePrefilledMessage,
+} from "@/lib/lineRouting";
 
 interface PipelineTableViewProps {
   leads: LeadRecord[];
@@ -121,8 +124,8 @@ export function PipelineTableView({
         l.propertyType === "CONDO"
           ? "คอนโด"
           : l.propertyType === "TOWNHOME"
-          ? "ทาวน์โฮม"
-          : "บ้านเดี่ยว";
+            ? "ทาวน์โฮม"
+            : "บ้านเดี่ยว";
       const zonesStr = (l.selectedZones || []).join(", ");
       const statusLabel = STATUS_LABELS[l.status]?.label || l.status;
       const cleanNotes = (l.notes || "").replace(/"/g, '""');
@@ -265,8 +268,8 @@ export function PipelineTableView({
                     lead.propertyType === "CONDO"
                       ? "คอนโด"
                       : lead.propertyType === "TOWNHOME"
-                      ? "ทาวน์โฮม"
-                      : "บ้านเดี่ยว";
+                        ? "ทาวน์โฮม"
+                        : "บ้านเดี่ยว";
 
                   const message = buildLinePrefilledMessage({
                     refCode: lead.refCode,
@@ -344,7 +347,8 @@ export function PipelineTableView({
                           <span>{lead.areaSqm} ตร.ม.</span>
                         </div>
                         <div className="text-[10px] text-[#7A7368] mt-0.5">
-                          เกรด {lead.materialGrade} • {lead.selectedZones?.length || 0} โซน
+                          เกรด {lead.materialGrade} •{" "}
+                          {lead.selectedZones?.length || 0} โซน
                         </div>
                       </td>
 
@@ -364,7 +368,7 @@ export function PipelineTableView({
                             onChange={(e) =>
                               onUpdateStatus(
                                 lead.id,
-                                e.target.value as LeadStatus
+                                e.target.value as LeadStatus,
                               )
                             }
                             className={`appearance-none px-2.5 py-1 pr-6 rounded-lg text-xs font-semibold border cursor-pointer focus:outline-none focus:ring-1 focus:ring-[#8F653B] ${statusStyle.bg} ${statusStyle.text} ${statusStyle.border}`}

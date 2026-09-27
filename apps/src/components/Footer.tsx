@@ -1,5 +1,5 @@
+import { MapPin, MessageSquare, Phone, Sparkles } from "lucide-react";
 import Link from "next/link";
-import { MessageSquare, Phone, MapPin, Sparkles } from "lucide-react";
 
 export function Footer() {
   return (
@@ -21,7 +21,9 @@ export function Footer() {
               Japandi & Modern Luxury
             </p>
             <p className="text-xs text-[#8F653B] leading-relaxed">
-              หมายเหตุ: ตัวเลขนี้เป็นการประเมินงบประมาณเบื้องต้นจากสเปกมาตรฐาน ไม่ใช่ใบเสนอราคาผูกมัด (Official Quotation) ราคาจริงอาจปรับเปลี่ยนตามสภาพพื้นที่จริงและฟังก์ชันเฉพาะบุคคล
+              หมายเหตุ: ตัวเลขนี้เป็นการประเมินงบประมาณเบื้องต้นจากสเปกมาตรฐาน
+              ไม่ใช่ใบเสนอราคาผูกมัด (Official Quotation)
+              ราคาจริงอาจปรับเปลี่ยนตามสภาพพื้นที่จริงและฟังก์ชันเฉพาะบุคคล
             </p>
           </div>
 

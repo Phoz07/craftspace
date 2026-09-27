@@ -1,9 +1,9 @@
 import { describe, expect, it } from "vitest";
 import {
-  verifyPasscode,
   createSessionToken,
-  verifySessionToken,
   DEFAULT_ADMIN_PASSCODE,
+  verifyPasscode,
+  verifySessionToken,
 } from "./auth";
 
 describe("Admin Passcode Authentication and Session Tokens", () => {

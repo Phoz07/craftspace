@@ -15,7 +15,9 @@
   --color-surface-muted: #f8f6f0;
   --color-border-subtle: #eae4da;
 
-  --font-sans: var(--font-line-seed), ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-sans:
+    var(--font-line-seed), ui-sans-serif, system-ui, -apple-system,
+    BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 }
 
 :root {

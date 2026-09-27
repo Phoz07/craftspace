@@ -1,15 +1,15 @@
 "use client";
 
-import Link from "next/link";
 import {
-  LayoutList,
   Columns3,
-  LogOut,
   ExternalLink,
+  LayoutList,
+  LogOut,
   Shield,
   Sparkles,
 } from "lucide-react";
-import { type LeadRecord } from "@/lib/db";
+import Link from "next/link";
+import type { LeadRecord } from "@/lib/db";
 
 interface AdminHeaderProps {
   currentView: "table" | "kanban";
@@ -35,7 +35,7 @@ export function AdminHeader({
   const newLeadsCount = leads.filter((l) => l.status === "NEW_LEAD").length;
   const contactedCount = leads.filter((l) => l.status === "CONTACTED").length;
   const siteSurveyCount = leads.filter(
-    (l) => l.status === "SITE_SURVEY_SCHEDULED"
+    (l) => l.status === "SITE_SURVEY_SCHEDULED",
   ).length;
 
   return (
@@ -91,7 +91,9 @@ export function AdminHeader({
             </div>
             <div className="px-3 py-1.5 rounded-xl bg-[#292622] border border-[#3D3730] flex items-center gap-2">
               <span className="text-[#A8A196]">นัดสำรวจ:</span>
-              <span className="font-bold text-purple-400">{siteSurveyCount}</span>
+              <span className="font-bold text-purple-400">
+                {siteSurveyCount}
+              </span>
             </div>
           </div>
 

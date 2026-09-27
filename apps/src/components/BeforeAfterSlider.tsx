@@ -1,8 +1,8 @@
 "use client";
 
-import { useState, useRef, useCallback, useEffect } from "react";
-import Image from "next/image";
 import { ChevronsLeftRight } from "lucide-react";
+import Image from "next/image";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 interface BeforeAfterSliderProps {
   beforeImage: string;
@@ -45,16 +45,13 @@ export function BeforeAfterSlider({
     };
   }, []);
 
-  const handleMove = useCallback(
-    (clientX: number) => {
-      if (!containerRef.current) return;
-      const rect = containerRef.current.getBoundingClientRect();
-      const x = clientX - rect.left;
-      const percent = Math.min(Math.max((x / rect.width) * 100, 0), 100);
-      setSliderPosition(percent);
-    },
-    []
-  );
+  const handleMove = useCallback((clientX: number) => {
+    if (!containerRef.current) return;
+    const rect = containerRef.current.getBoundingClientRect();
+    const x = clientX - rect.left;
+    const percent = Math.min(Math.max((x / rect.width) * 100, 0), 100);
+    setSliderPosition(percent);
+  }, []);
 
   const handlePointerDown = (e: React.PointerEvent) => {
     setIsDragging(true);

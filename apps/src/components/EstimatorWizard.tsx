@@ -1,30 +1,30 @@
 "use client";
 
+import {
+  AlertCircle,
+  Building2,
+  Castle,
+  Check,
+  CheckCircle2,
+  ChevronLeft,
+  ChevronRight,
+  Gem,
+  Home as HomeIcon,
+  Info,
+  Layers,
+  Shield,
+  Sliders,
+  Sparkles,
+} from "lucide-react";
 import { useState } from "react";
 import {
   calculateEstimate,
-  type PropertyType,
   type DecorationZoneKey,
-  type MaterialGradeKey,
   type EstimateResult,
+  type MaterialGradeKey,
+  type PropertyType,
 } from "@/lib/pricing";
 import { AnimatedPrice } from "./AnimatedPrice";
-import {
-  Building2,
-  Home as HomeIcon,
-  Castle,
-  Check,
-  ChevronRight,
-  ChevronLeft,
-  Sparkles,
-  Info,
-  Shield,
-  Layers,
-  Sliders,
-  CheckCircle2,
-  AlertCircle,
-  Gem,
-} from "lucide-react";
 
 export interface EstimatorState {
   propertyType: PropertyType;
@@ -60,7 +60,7 @@ export function EstimatorWizard({
 
   const toggleZone = (zone: DecorationZoneKey) => {
     setSelectedZones((prev) =>
-      prev.includes(zone) ? prev.filter((z) => z !== zone) : [...prev, zone]
+      prev.includes(zone) ? prev.filter((z) => z !== zone) : [...prev, zone],
     );
   };
 
@@ -138,8 +138,8 @@ export function EstimatorWizard({
                     isCurrent
                       ? "text-[#8F653B] font-bold"
                       : isDone
-                      ? "text-[#1F1D1A]"
-                      : "text-[#A8A196]"
+                        ? "text-[#1F1D1A]"
+                        : "text-[#A8A196]"
                   }`}
                 >
                   {step.title}
@@ -258,7 +258,10 @@ export function EstimatorWizard({
                       value={areaSqm}
                       onChange={(e) =>
                         setAreaSqm(
-                          Math.max(20, Math.min(350, Number(e.target.value) || 20))
+                          Math.max(
+                            20,
+                            Math.min(350, Number(e.target.value) || 20),
+                          ),
                         )
                       }
                       className="w-20 px-3 py-1.5 text-right font-bold text-base bg-white rounded-lg border border-[#E5DED3] text-[#1F1D1A] focus:outline-none focus:ring-2 focus:ring-[#8F653B]"
@@ -335,7 +338,11 @@ export function EstimatorWizard({
               <div className="p-3.5 rounded-xl bg-[#F3EFE6] border border-[#E5DED3] flex items-start gap-2.5 text-xs text-[#5A554E] leading-relaxed">
                 <Info className="w-4 h-4 text-[#8F653B] shrink-0 mt-0.5" />
                 <span>
-                  💡 <strong>ราคาประเมินนี้ครอบคลุมการบิวท์อิน 1 โซนหลักต่อประเภท</strong> (เช่น 1 ห้องนอนใหญ่, 1 ห้องนั่งเล่นหลัก) หากต้องการเพิ่มห้องนอนเล็กหรือโซนอื่นๆ สตูดิโอจะจัดสเปกและส่วนลดพิเศษเพิ่มเติมให้ในขั้นตอนสรุปแบบ
+                  💡{" "}
+                  <strong>ราคาประเมินนี้ครอบคลุมการบิวท์อิน 1 โซนหลักต่อประเภท</strong>{" "}
+                  (เช่น 1 ห้องนอนใหญ่, 1 ห้องนั่งเล่นหลัก)
+                  หากต้องการเพิ่มห้องนอนเล็กหรือโซนอื่นๆ
+                  สตูดิโอจะจัดสเปกและส่วนลดพิเศษเพิ่มเติมให้ในขั้นตอนสรุปแบบ
                 </span>
               </div>
 
@@ -359,7 +366,8 @@ export function EstimatorWizard({
                   {
                     id: "BEDROOM",
                     name: "ห้องนอนใหญ่ (Master Bedroom)",
-                    items: "ตู้เสื้อผ้า Full-height ถึงฝ้า, ผนังหัวเตียงบุผ้า/ไม้, โต๊ะเครื่องแป้ง",
+                    items:
+                      "ตู้เสื้อผ้า Full-height ถึงฝ้า, ผนังหัวเตียงบุผ้า/ไม้, โต๊ะเครื่องแป้ง",
                     base: "฿55,000",
                   },
                   {
@@ -371,12 +379,13 @@ export function EstimatorWizard({
                   {
                     id: "SYSTEM",
                     name: "งานระบบ & ตกแต่งเพิ่มเติม (System & Ceiling)",
-                    items: "ฝ้าหลุมซ่อนไฟ Linear LED, ผ้าม่านลอน 2 ชั้น, วอลเปเปอร์ผิวสัมผัส",
+                    items:
+                      "ฝ้าหลุมซ่อนไฟ Linear LED, ผ้าม่านลอน 2 ชั้น, วอลเปเปอร์ผิวสัมผัส",
                     base: "฿25,000",
                   },
                 ].map((zone) => {
                   const isChecked = selectedZones.includes(
-                    zone.id as DecorationZoneKey
+                    zone.id as DecorationZoneKey,
                   );
                   return (
                     <button
@@ -515,7 +524,9 @@ export function EstimatorWizard({
               disabled={currentStep === 3 && selectedZones.length === 0}
               className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#1F1D1A] hover:bg-[#332F2A] text-white text-xs sm:text-sm font-semibold transition-all disabled:opacity-40 disabled:cursor-not-allowed shadow-sm"
             >
-              <span>{currentStep === 4 ? "รับสลิปสรุปราคา & นัดสำรวจฟรี" : "ขั้นตอนถัดไป"}</span>
+              <span>
+                {currentStep === 4 ? "รับสลิปสรุปราคา & นัดสำรวจฟรี" : "ขั้นตอนถัดไป"}
+              </span>
               <ChevronRight className="w-4 h-4 text-[#C89D53]" />
             </button>
           </div>
@@ -533,8 +544,8 @@ export function EstimatorWizard({
                 {estimate.isZeroZone
                   ? "รอเลือกโซน"
                   : estimate.isFloorPriceApplied
-                  ? "Floor Price ฿120k"
-                  : "คำนวณเรียลไทม์"}
+                    ? "Floor Price ฿120k"
+                    : "คำนวณเรียลไทม์"}
               </span>
             </div>
 
@@ -557,7 +568,9 @@ export function EstimatorWizard({
                 )}
               </div>
               <p className="text-[10px] text-[#A8A196] leading-relaxed pt-1">
-                หมายเหตุ: ตัวเลขนี้เป็นการประเมินงบประมาณเบื้องต้นจากสเปกมาตรฐาน ไม่ใช่ใบเสนอราคาผูกมัด (Official Quotation) ราคาจริงอาจปรับเปลี่ยนตามสภาพพื้นที่จริงและฟังก์ชันเฉพาะบุคคล
+                หมายเหตุ: ตัวเลขนี้เป็นการประเมินงบประมาณเบื้องต้นจากสเปกมาตรฐาน
+                ไม่ใช่ใบเสนอราคาผูกมัด (Official Quotation)
+                ราคาจริงอาจปรับเปลี่ยนตามสภาพพื้นที่จริงและฟังก์ชันเฉพาะบุคคล
               </p>
             </div>
 
@@ -572,13 +585,15 @@ export function EstimatorWizard({
                   {propertyType === "CONDO"
                     ? "คอนโดมิเนียม"
                     : propertyType === "TOWNHOME"
-                    ? "ทาวน์โฮม"
-                    : "บ้านเดี่ยว"}
+                      ? "ทาวน์โฮม"
+                      : "บ้านเดี่ยว"}
                 </span>
               </div>
               <div className="flex justify-between text-[#A8A196]">
                 <span>พื้นที่:</span>
-                <span className="text-[#FBF9F5] font-medium">{areaSqm} ตร.ม.</span>
+                <span className="text-[#FBF9F5] font-medium">
+                  {areaSqm} ตร.ม.
+                </span>
               </div>
               <div className="flex justify-between text-[#A8A196]">
                 <span>โซนบิวท์อิน:</span>
@@ -588,7 +603,9 @@ export function EstimatorWizard({
               </div>
               <div className="flex justify-between text-[#A8A196]">
                 <span>เกรดวัสดุ:</span>
-                <span className="text-[#FBF9F5] font-medium">{materialGrade}</span>
+                <span className="text-[#FBF9F5] font-medium">
+                  {materialGrade}
+                </span>
               </div>
             </div>
           </div>
@@ -603,8 +620,8 @@ export function EstimatorWizard({
               {estimate.isZeroZone
                 ? "กรุณาเลือกอย่างน้อย 1 โซน"
                 : currentStep < 4
-                ? "ไปขั้นตอนถัดไป & สรุปราคา"
-                : "รับสลิปสรุปราคา & นัดสำรวจฟรี"}
+                  ? "ไปขั้นตอนถัดไป & สรุปราคา"
+                  : "รับสลิปสรุปราคา & นัดสำรวจฟรี"}
             </button>
           </div>
         </div>

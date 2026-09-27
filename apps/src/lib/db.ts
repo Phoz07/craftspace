@@ -249,7 +249,7 @@ export const INITIAL_SEED_LEADS: LeadRecord[] = [
 
 // In-memory store fallback when DATABASE_URL is not set
 const memoryLeads = new Map<string, LeadRecord>(
-  INITIAL_SEED_LEADS.map((l) => [l.id, { ...l }])
+  INITIAL_SEED_LEADS.map((l) => [l.id, { ...l }]),
 );
 
 export const db = {
@@ -339,7 +339,7 @@ export const db = {
           (l) =>
             l.refCode.toLowerCase() === args.where.refCode?.toLowerCase() ||
             l.refCode.replace("#", "").toLowerCase() ===
-              args.where.refCode?.replace("#", "").toLowerCase()
+              args.where.refCode?.replace("#", "").toLowerCase(),
         );
         return found ?? null;
       }
@@ -347,7 +347,10 @@ export const db = {
     },
 
     async create(args: {
-      data: Omit<LeadRecord, "id" | "createdAt" | "updatedAt" | "status" | "notes"> & {
+      data: Omit<
+        LeadRecord,
+        "id" | "createdAt" | "updatedAt" | "status" | "notes"
+      > & {
         status?: LeadStatus;
         notes?: string | null;
       };

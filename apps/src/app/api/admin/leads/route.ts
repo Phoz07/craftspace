@@ -42,7 +42,7 @@ export async function GET(request: Request) {
     console.error("[api/admin/leads] Error fetching leads:", error);
     return NextResponse.json(
       { success: false, error: "Failed to fetch leads" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }

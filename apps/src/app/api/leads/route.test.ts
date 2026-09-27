@@ -25,7 +25,9 @@ describe("POST /api/leads Integration Seam", () => {
     const json = await res.json();
     expect(json.success).toBe(true);
     expect(json.lead).toBeDefined();
-    expect(json.lead.refCode).toMatch(/^#CS-\d{4}-[23456789ABCDEFGHJKLMNPQRSTUVWXYZ]{4}$/);
+    expect(json.lead.refCode).toMatch(
+      /^#CS-\d{4}-[23456789ABCDEFGHJKLMNPQRSTUVWXYZ]{4}$/,
+    );
     expect(json.lead.customerName).toBe("คุณทดสอบ ระบบ");
     expect(json.lead.phoneNumber).toBe("0891234567");
     expect(json.lead.estimatedMin).toBe(135000);

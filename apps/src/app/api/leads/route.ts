@@ -1,9 +1,17 @@
 import { NextResponse } from "next/server";
 import { db } from "@/lib/db";
-import { calculateEstimate, type PropertyType, type DecorationZoneKey, type MaterialGradeKey } from "@/lib/pricing";
+import {
+  buildLineDeepLink,
+  buildLinePrefilledMessage,
+} from "@/lib/lineRouting";
+import {
+  calculateEstimate,
+  type DecorationZoneKey,
+  type MaterialGradeKey,
+  type PropertyType,
+} from "@/lib/pricing";
 import { generateRefCode } from "@/lib/refCode";
-import { validateLeadSubmission, cleanThaiPhone } from "@/lib/validation";
-import { buildLinePrefilledMessage, buildLineDeepLink } from "@/lib/lineRouting";
+import { cleanThaiPhone, validateLeadSubmission } from "@/lib/validation";
 
 export async function POST(request: Request) {
   try {
@@ -17,7 +25,7 @@ export async function POST(request: Request) {
           error: "Validation failed",
           errors: validation.errors,
         },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
@@ -46,7 +54,7 @@ export async function POST(request: Request) {
           success: false,
           error: "Cannot create lead without decoration zones",
         },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
@@ -106,13 +114,13 @@ export async function POST(request: Request) {
           createdAt: lead.createdAt,
         },
       },
-      { status: 201 }
+      { status: 201 },
     );
   } catch (error) {
     console.error("[api/leads] Error processing lead:", error);
     return NextResponse.json(
       { success: false, error: "Internal server error" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }

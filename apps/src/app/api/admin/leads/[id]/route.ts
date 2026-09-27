@@ -11,14 +11,14 @@ const VALID_STATUSES: LeadStatus[] = [
 
 export async function PATCH(
   request: Request,
-  { params }: { params: Promise<{ id: string }> }
+  { params }: { params: Promise<{ id: string }> },
 ) {
   try {
     const { id } = await params;
     if (!id) {
       return NextResponse.json(
         { success: false, error: "Missing lead ID" },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
@@ -32,14 +32,15 @@ export async function PATCH(
       if (!VALID_STATUSES.includes(body.status)) {
         return NextResponse.json(
           { success: false, error: "Invalid lead status" },
-          { status: 400 }
+          { status: 400 },
         );
       }
       updateData.status = body.status;
     }
 
     if (body.notes !== undefined) {
-      updateData.notes = typeof body.notes === "string" ? body.notes.trim() : null;
+      updateData.notes =
+        typeof body.notes === "string" ? body.notes.trim() : null;
     }
 
     const updated = await db.lead.update({
@@ -55,7 +56,7 @@ export async function PATCH(
     console.error("[api/admin/leads/[id]] Error updating lead:", error);
     return NextResponse.json(
       { success: false, error: "Lead not found or update failed" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }

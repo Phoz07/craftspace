@@ -1,19 +1,22 @@
 "use client";
 
-import { useState } from "react";
 import {
-  Phone,
-  MessageSquare,
-  FileText,
-  Clock,
-  ArrowRight,
   ArrowLeft,
+  ArrowRight,
   ChevronRight,
-  Sparkles,
+  Clock,
+  FileText,
   Layers,
+  MessageSquare,
+  Phone,
+  Sparkles,
 } from "lucide-react";
-import { type LeadRecord, type LeadStatus } from "@/lib/db";
-import { buildLineDeepLink, buildLinePrefilledMessage } from "@/lib/lineRouting";
+import { useState } from "react";
+import type { LeadRecord, LeadStatus } from "@/lib/db";
+import {
+  buildLineDeepLink,
+  buildLinePrefilledMessage,
+} from "@/lib/lineRouting";
 
 interface PipelineKanbanViewProps {
   leads: LeadRecord[];
@@ -155,7 +158,9 @@ export function PipelineKanbanView({
               onDragLeave={() => setDragOverStage(null)}
               onDrop={(e) => handleDrop(e, stage.id)}
               className={`flex-1 min-w-[240px] bg-[#F8F6F0] rounded-2xl border ${
-                isDragOver ? "border-[#8F653B] ring-2 ring-[#8F653B]/20 bg-[#F3EFE6]" : "border-[#EAE4DA]"
+                isDragOver
+                  ? "border-[#8F653B] ring-2 ring-[#8F653B]/20 bg-[#F3EFE6]"
+                  : "border-[#EAE4DA]"
               } shadow-xs flex flex-col transition-all border-t-4 ${stage.headerBorder}`}
             >
               {/* Stage Header */}
@@ -194,8 +199,8 @@ export function PipelineKanbanView({
                       lead.propertyType === "CONDO"
                         ? "คอนโด"
                         : lead.propertyType === "TOWNHOME"
-                        ? "ทาวน์โฮม"
-                        : "บ้านเดี่ยว";
+                          ? "ทาวน์โฮม"
+                          : "บ้านเดี่ยว";
 
                     return (
                       <div
@@ -232,7 +237,9 @@ export function PipelineKanbanView({
 
                         {/* Budget */}
                         <div className="pt-1.5 border-t border-[#F3EFE6] flex items-center justify-between text-xs">
-                          <span className="text-[10px] text-[#7A7368]">งบประมาณ:</span>
+                          <span className="text-[10px] text-[#7A7368]">
+                            งบประมาณ:
+                          </span>
                           <span className="font-bold text-[#1F1D1A] text-[11px]">
                             ฿{(lead.estimatedMin / 1000).toFixed(0)}k – ฿
                             {(lead.estimatedMax / 1000).toFixed(0)}k

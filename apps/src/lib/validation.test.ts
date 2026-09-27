@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { validateLeadSubmission, cleanThaiPhone } from "./validation";
+import { cleanThaiPhone, validateLeadSubmission } from "./validation";
 
 describe("Lead Submission Validation", () => {
   it("normalizes and validates valid Thai phone numbers", () => {

@@ -1,21 +1,18 @@
 "use client";
 
-import { useState, useMemo } from "react";
-import Image from "next/image";
 import {
-  PORTFOLIO_PROJECTS,
-  type PortfolioProject,
-} from "@/data/portfolio";
-import {
-  Maximize2,
-  Calendar,
-  Wallet,
-  Sparkles,
-  MapPin,
-  Check,
   Building2,
+  Calendar,
+  Check,
+  MapPin,
+  Maximize2,
   Palette,
+  Sparkles,
+  Wallet,
 } from "lucide-react";
+import Image from "next/image";
+import { useMemo, useState } from "react";
+import { PORTFOLIO_PROJECTS, type PortfolioProject } from "@/data/portfolio";
 
 type PropertyFilter = "ALL" | "CONDO" | "TOWNHOME" | "HOUSE";
 type StyleFilter = "ALL" | "JAPANDI" | "LUXURY" | "CLASSIC";
@@ -28,14 +25,16 @@ export function PortfolioShowcase() {
     return PORTFOLIO_PROJECTS.filter((project) => {
       const matchProperty =
         propertyFilter === "ALL" || project.propertyType === propertyFilter;
-      const matchStyle =
-        styleFilter === "ALL" || project.style === styleFilter;
+      const matchStyle = styleFilter === "ALL" || project.style === styleFilter;
       return matchProperty && matchStyle;
     });
   }, [propertyFilter, styleFilter]);
 
   return (
-    <section id="portfolio" className="py-16 sm:py-24 border-t border-[#EAE4DA]">
+    <section
+      id="portfolio"
+      className="py-16 sm:py-24 border-t border-[#EAE4DA]"
+    >
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         {/* Section Heading */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">

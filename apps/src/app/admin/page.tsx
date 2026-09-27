@@ -1,13 +1,13 @@
 "use client";
 
-import { useState, useEffect, Suspense } from "react";
-import { useSearchParams, useRouter } from "next/navigation";
+import { AlertCircle, Loader2 } from "lucide-react";
+import { useRouter, useSearchParams } from "next/navigation";
+import { Suspense, useEffect, useState } from "react";
 import { AdminHeader } from "@/components/admin/AdminHeader";
-import { PipelineTableView } from "@/components/admin/PipelineTableView";
-import { PipelineKanbanView } from "@/components/admin/PipelineKanbanView";
 import { LeadNotesModal } from "@/components/admin/LeadNotesModal";
-import { type LeadRecord, type LeadStatus } from "@/lib/db";
-import { Loader2, AlertCircle } from "lucide-react";
+import { PipelineKanbanView } from "@/components/admin/PipelineKanbanView";
+import { PipelineTableView } from "@/components/admin/PipelineTableView";
+import type { LeadRecord, LeadStatus } from "@/lib/db";
 
 function AdminPipelineContent() {
   const searchParams = useSearchParams();
@@ -59,7 +59,7 @@ function AdminPipelineContent() {
   const handleUpdateStatus = async (id: string, newStatus: LeadStatus) => {
     // Optimistic state update
     setLeads((prev) =>
-      prev.map((l) => (l.id === id ? { ...l, status: newStatus } : l))
+      prev.map((l) => (l.id === id ? { ...l, status: newStatus } : l)),
     );
 
     try {
@@ -81,11 +81,11 @@ function AdminPipelineContent() {
   const handleSaveNotes = async (
     id: string,
     notes: string,
-    status: LeadStatus
+    status: LeadStatus,
   ) => {
     // Optimistic state update
     setLeads((prev) =>
-      prev.map((l) => (l.id === id ? { ...l, notes, status } : l))
+      prev.map((l) => (l.id === id ? { ...l, notes, status } : l)),
     );
 
     try {

@@ -1,8 +1,8 @@
 import { NextResponse } from "next/server";
 import {
-  verifyPasscode,
   createSessionToken,
   SESSION_COOKIE_NAME,
+  verifyPasscode,
 } from "@/lib/auth";
 
 export async function POST(request: Request) {
@@ -16,7 +16,7 @@ export async function POST(request: Request) {
           success: false,
           error: "รหัสผ่านไม่ถูกต้อง กรุณาตรวจสอบรหัสผ่านสตูดิโออีกครั้ง",
         },
-        { status: 401 }
+        { status: 401 },
       );
     }
 
@@ -43,7 +43,7 @@ export async function POST(request: Request) {
     console.error("[api/admin/login] Login error:", error);
     return NextResponse.json(
       { success: false, error: "Internal server error" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }

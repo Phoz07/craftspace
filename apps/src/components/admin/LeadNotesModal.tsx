@@ -1,20 +1,23 @@
 "use client";
 
-import { useState } from "react";
 import {
-  X,
-  Phone,
-  MessageSquare,
+  Calendar,
+  CheckCircle2,
   FileText,
   Image as ImageIcon,
-  CheckCircle2,
-  Loader2,
-  Calendar,
   Layers,
+  Loader2,
+  MessageSquare,
+  Phone,
   Sparkles,
+  X,
 } from "lucide-react";
-import { type LeadRecord, type LeadStatus } from "@/lib/db";
-import { buildLineDeepLink, buildLinePrefilledMessage } from "@/lib/lineRouting";
+import { useState } from "react";
+import type { LeadRecord, LeadStatus } from "@/lib/db";
+import {
+  buildLineDeepLink,
+  buildLinePrefilledMessage,
+} from "@/lib/lineRouting";
 
 interface LeadNotesModalProps {
   lead: LeadRecord | null;
@@ -60,8 +63,8 @@ export function LeadNotesModal({
     lead.propertyType === "CONDO"
       ? "คอนโดมิเนียม"
       : lead.propertyType === "TOWNHOME"
-      ? "ทาวน์โฮม"
-      : "บ้านเดี่ยว";
+        ? "ทาวน์โฮม"
+        : "บ้านเดี่ยว";
 
   const message = buildLinePrefilledMessage({
     refCode: lead.refCode,
@@ -162,7 +165,9 @@ export function LeadNotesModal({
               </span>
             </div>
             <div>
-              <span className="text-[#7A7368] block text-[11px]">งบประมาณประเมิน</span>
+              <span className="text-[#7A7368] block text-[11px]">
+                งบประมาณประเมิน
+              </span>
               <span className="font-bold text-[#1F1D1A] mt-0.5 block">
                 ฿{lead.estimatedMin.toLocaleString()} – ฿
                 {lead.estimatedMax.toLocaleString()}
@@ -198,7 +203,9 @@ export function LeadNotesModal({
               className="w-full py-2.5 px-3 rounded-xl border border-[#EAE4DA] bg-[#FBF9F5] text-xs sm:text-sm font-semibold text-[#1F1D1A] focus:outline-none focus:ring-2 focus:ring-[#8F653B]"
             >
               <option value="NEW_LEAD">NEW_LEAD (ลีดใหม่ ยังไม่ได้ติดต่อ)</option>
-              <option value="CONTACTED">CONTACTED (ติดต่อโทร/แชทคุยเบื้องต้นแล้ว)</option>
+              <option value="CONTACTED">
+                CONTACTED (ติดต่อโทร/แชทคุยเบื้องต้นแล้ว)
+              </option>
               <option value="SITE_SURVEY_SCHEDULED">
                 SITE_SURVEY_SCHEDULED (นัดหมายสำรวจหน้างานฟรีแล้ว)
               </option>

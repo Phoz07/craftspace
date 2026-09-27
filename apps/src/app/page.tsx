@@ -1,18 +1,18 @@
 "use client";
 
 import { useState } from "react";
-import { Navbar } from "@/components/Navbar";
+import {
+  type EstimatorState,
+  EstimatorWizard,
+} from "@/components/EstimatorWizard";
 import { Footer } from "@/components/Footer";
 import { HeroSection } from "@/components/HeroSection";
-import {
-  EstimatorWizard,
-  type EstimatorState,
-} from "@/components/EstimatorWizard";
-import { PortfolioShowcase } from "@/components/PortfolioShowcase";
 import {
   LeadCaptureModal,
   type LeadSubmissionResponse,
 } from "@/components/LeadCaptureModal";
+import { Navbar } from "@/components/Navbar";
+import { PortfolioShowcase } from "@/components/PortfolioShowcase";
 import { SubmissionSuccessModal } from "@/components/SubmissionSuccessModal";
 
 export default function Home() {
@@ -44,7 +44,9 @@ export default function Home() {
 
         {/* Interactive 4-Step Cost Estimator Wizard */}
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
-          <EstimatorWizard onProceedToLeadCapture={handleProceedToLeadCapture} />
+          <EstimatorWizard
+            onProceedToLeadCapture={handleProceedToLeadCapture}
+          />
         </div>
 
         {/* Portfolio Showcase with Real Metadata & Multi-category Filtering */}

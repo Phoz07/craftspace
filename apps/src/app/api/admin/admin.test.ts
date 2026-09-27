@@ -1,9 +1,9 @@
 import { describe, expect, it } from "vitest";
+import { DEFAULT_ADMIN_PASSCODE } from "@/lib/auth";
+import { PATCH as leadPatch } from "./leads/[id]/route";
+import { GET as leadsGet } from "./leads/route";
 import { POST as loginPost } from "./login/route";
 import { POST as logoutPost } from "./logout/route";
-import { GET as leadsGet } from "./leads/route";
-import { PATCH as leadPatch } from "./leads/[id]/route";
-import { DEFAULT_ADMIN_PASSCODE } from "@/lib/auth";
 
 describe("Admin API Integration Seam", () => {
   it("POST /api/admin/login authenticates with valid passcode and sets session cookie", async () => {
@@ -60,18 +60,20 @@ describe("Admin API Integration Seam", () => {
   it("GET /api/admin/leads filters leads by status and keyword search", async () => {
     // Test status filter
     const statusReq = new Request(
-      "http://localhost:3000/api/admin/leads?status=NEW_LEAD"
+      "http://localhost:3000/api/admin/leads?status=NEW_LEAD",
     );
     const statusRes = await leadsGet(statusReq);
     const statusJson = await statusRes.json();
     expect(statusJson.success).toBe(true);
     expect(
-      statusJson.leads.every((l: { status: string }) => l.status === "NEW_LEAD")
+      statusJson.leads.every(
+        (l: { status: string }) => l.status === "NEW_LEAD",
+      ),
     ).toBe(true);
 
     // Test search filter by customer name or phone
     const searchReq = new Request(
-      "http://localhost:3000/api/admin/leads?search=0891234567"
+      "http://localhost:3000/api/admin/leads?search=0891234567",
     );
     const searchRes = await leadsGet(searchReq);
     const searchJson = await searchRes.json();

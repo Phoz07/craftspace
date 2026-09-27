@@ -70,6 +70,8 @@ export function validateLeadSubmission(data: Partial<LeadSubmissionPayload>): {
   return {
     isValid: Object.keys(errors).length === 0,
     errors,
-    cleanedPhone: data.phoneNumber ? cleanThaiPhone(data.phoneNumber) : undefined,
+    cleanedPhone: data.phoneNumber
+      ? cleanThaiPhone(data.phoneNumber)
+      : undefined,
   };
 }

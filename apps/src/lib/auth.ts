@@ -20,14 +20,17 @@ export function verifyPasscode(input: string): boolean {
 /**
  * Generates HMAC SHA-256 hex digest using Web Crypto (Edge + Node compatible)
  */
-async function computeHmacSha256(secret: string, data: string): Promise<string> {
+async function computeHmacSha256(
+  secret: string,
+  data: string,
+): Promise<string> {
   const enc = new TextEncoder();
   const key = await crypto.subtle.importKey(
     "raw",
     enc.encode(secret),
     { name: "HMAC", hash: "SHA-256" },
     false,
-    ["sign"]
+    ["sign"],
   );
   const signature = await crypto.subtle.sign("HMAC", key, enc.encode(data));
   const hashArray = Array.from(new Uint8Array(signature));
@@ -49,7 +52,7 @@ export async function createSessionToken(): Promise<string> {
  */
 export async function verifySessionToken(
   token: string | undefined | null,
-  maxAgeMs: number = 1000 * 60 * 60 * 24 * 7 // 7 days
+  maxAgeMs: number = 1000 * 60 * 60 * 24 * 7, // 7 days
 ): Promise<boolean> {
   if (!token || typeof token !== "string") return false;
 

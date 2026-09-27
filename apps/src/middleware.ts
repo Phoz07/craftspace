@@ -1,14 +1,11 @@
-import { NextResponse, type NextRequest } from "next/server";
+import { type NextRequest, NextResponse } from "next/server";
 import { SESSION_COOKIE_NAME, verifySessionToken } from "@/lib/auth";
 
 export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
   // Allow login endpoint and login page without authentication
-  if (
-    pathname === "/admin/login" ||
-    pathname === "/api/admin/login"
-  ) {
+  if (pathname === "/admin/login" || pathname === "/api/admin/login") {
     // If user already has a valid session and visits /admin/login, redirect to /admin
     if (pathname === "/admin/login") {
       const sessionCookie = request.cookies.get(SESSION_COOKIE_NAME)?.value;
@@ -28,7 +25,7 @@ export async function middleware(request: NextRequest) {
       if (pathname.startsWith("/api/admin")) {
         return NextResponse.json(
           { success: false, error: "Unauthorized access" },
-          { status: 401 }
+          { status: 401 },
         );
       }
 

@@ -43,7 +43,7 @@ export function buildLinePrefilledMessage(params: LineMessageParams): string {
  */
 export function buildLineDeepLink(
   message: string,
-  oaId: string = process.env.NEXT_PUBLIC_LINE_OA_ID || "@craftspace"
+  oaId: string = process.env.NEXT_PUBLIC_LINE_OA_ID || "@craftspace",
 ): string {
   const cleanOaId = oaId.startsWith("@") ? oaId : `@${oaId}`;
   return `https://line.me/R/oaMessage/${encodeURIComponent(cleanOaId)}/?text=${encodeURIComponent(message)}`;

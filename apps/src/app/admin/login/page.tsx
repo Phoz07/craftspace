@@ -1,8 +1,16 @@
 "use client";
 
-import { useState } from "react";
+import {
+  AlertCircle,
+  ArrowLeft,
+  Eye,
+  EyeOff,
+  Loader2,
+  Lock,
+  Shield,
+} from "lucide-react";
 import Link from "next/link";
-import { Lock, Eye, EyeOff, Loader2, AlertCircle, ArrowLeft, Shield } from "lucide-react";
+import { useState } from "react";
 
 export default function AdminLoginPage() {
   const [passcode, setPasscode] = useState("");
@@ -115,7 +123,10 @@ export default function AdminLoginPage() {
                 </button>
               </div>
               <p className="text-[11px] text-[#7A7368]">
-                Default: <code className="bg-[#F3EFE6] px-1 py-0.5 rounded font-mono text-[10px]">craftspace2026</code>
+                Default:{" "}
+                <code className="bg-[#F3EFE6] px-1 py-0.5 rounded font-mono text-[10px]">
+                  craftspace2026
+                </code>
               </p>
             </div>
 

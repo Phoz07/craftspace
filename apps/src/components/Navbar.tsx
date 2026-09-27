@@ -1,5 +1,5 @@
+import { Shield, Sparkles } from "lucide-react";
 import Link from "next/link";
-import { Sparkles, Shield } from "lucide-react";
 
 export function Navbar() {
   return (

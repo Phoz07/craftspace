@@ -57,8 +57,7 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
     areaSqm: 75,
     durationDays: 45,
     actualBudget: 650_000,
-    highlight:
-      "พาร์ทิชันระแนงไม้กั้นโซนทำงาน เคาน์เตอร์ครัวตัวแอล และผนังทีวีมุมโค้งมนสบายตา",
+    highlight: "พาร์ทิชันระแนงไม้กั้นโซนทำงาน เคาน์เตอร์ครัวตัวแอล และผนังทีวีมุมโค้งมนสบายตา",
     imageUrl:
       "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=1200&q=80",
   },
@@ -73,8 +72,7 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
     areaSqm: 80,
     durationDays: 50,
     actualBudget: 790_000,
-    highlight:
-      "ตู้เสื้อผ้า Walk-in คิ้วบัวสไตล์โมเดิร์นคลาสสิก พร้อมแพนทรี่หินสังเคราะห์กันรอย",
+    highlight: "ตู้เสื้อผ้า Walk-in คิ้วบัวสไตล์โมเดิร์นคลาสสิก พร้อมแพนทรี่หินสังเคราะห์กันรอย",
     imageUrl:
       "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=80",
   },

@@ -27,10 +27,9 @@ export function AnimatedPrice({
       if (!startTimestamp) startTimestamp = timestamp;
       const progress = Math.min((timestamp - startTimestamp) / duration, 1);
       // easeOutExpo
-      const easeProgress =
-        progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
+      const easeProgress = progress === 1 ? 1 : 1 - 2 ** (-10 * progress);
       const current = Math.round(
-        startValue + (endValue - startValue) * easeProgress
+        startValue + (endValue - startValue) * easeProgress,
       );
       setDisplayValue(current);
 

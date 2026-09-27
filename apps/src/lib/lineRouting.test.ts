@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 import {
-  buildLinePrefilledMessage,
   buildLineDeepLink,
+  buildLinePrefilledMessage,
   generateQrCodeDataUrl,
   getPropertyThaiLabel,
 } from "./lineRouting";
@@ -25,7 +25,7 @@ describe("Omnichannel LINE Routing utilities", () => {
     });
 
     expect(message).toBe(
-      "สวัสดีครับ สนใจปรึกษาแบบตกแต่งห้องตามใบประเมิน #CS-2609-7K2X (คอนโด 35 ตร.ม. เกรด PREMIUM งบประเมิน ฿222,750 – ฿267,300)"
+      "สวัสดีครับ สนใจปรึกษาแบบตกแต่งห้องตามใบประเมิน #CS-2609-7K2X (คอนโด 35 ตร.ม. เกรด PREMIUM งบประเมิน ฿222,750 – ฿267,300)",
     );
   });
 
@@ -33,8 +33,12 @@ describe("Omnichannel LINE Routing utilities", () => {
     const message = "สวัสดีครับ สนใจปรึกษาแบบตกแต่งห้องตามใบประเมิน #CS-2609-7K2X";
     const deepLink = buildLineDeepLink(message, "@craftspace");
 
-    expect(deepLink).toMatch(/^https:\/\/line\.me\/R\/oaMessage\/%40craftspace\/\?text=/);
-    expect(decodeURIComponent(deepLink)).toContain("@craftspace/?text=" + message);
+    expect(deepLink).toMatch(
+      /^https:\/\/line\.me\/R\/oaMessage\/%40craftspace\/\?text=/,
+    );
+    expect(decodeURIComponent(deepLink)).toContain(
+      "@craftspace/?text=" + message,
+    );
   });
 
   it("generates valid PNG base64 QR code data URL for desktop scanning", async () => {

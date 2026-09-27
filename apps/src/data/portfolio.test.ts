@@ -8,7 +8,7 @@ describe("Portfolio Data and Filtering Contracts", () => {
 
   it("covers all 3 property categories and all 3 design styles", () => {
     const propertyTypes = new Set(
-      PORTFOLIO_PROJECTS.map((p) => p.propertyType)
+      PORTFOLIO_PROJECTS.map((p) => p.propertyType),
     );
     const styles = new Set(PORTFOLIO_PROJECTS.map((p) => p.style));
 

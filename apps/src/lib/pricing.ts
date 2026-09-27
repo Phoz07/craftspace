@@ -96,7 +96,7 @@ export function calculateEstimate(input: EstimateInput): EstimateResult {
 
   // RawEst = (\sum BaseZoneCost) * M_property * M_grade * F_area
   const rawEstimate = Math.round(
-    baseZoneTotal * propertyMultiplier * gradeMultiplier * areaScaleFactor
+    baseZoneTotal * propertyMultiplier * gradeMultiplier * areaScaleFactor,
   );
 
   const estimatedMin = Math.max(FLOOR_PRICE, rawEstimate);
