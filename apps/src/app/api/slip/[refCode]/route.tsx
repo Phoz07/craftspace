@@ -11,13 +11,13 @@ function getFontBuffers() {
     process.cwd(),
     "public",
     "fonts",
-    "Prompt-Regular.ttf"
+    "LINESeedSansTH_Rg.ttf"
   );
   const boldPath = path.join(
     process.cwd(),
     "public",
     "fonts",
-    "Prompt-Bold.ttf"
+    "LINESeedSansTH_Bd.ttf"
   );
 
   const regularFont = fs.readFileSync(regularPath);
@@ -88,7 +88,7 @@ export async function GET(
             justifyContent: "space-between",
             backgroundColor: "#FBF9F5",
             padding: "80px 70px",
-            fontFamily: "Prompt, sans-serif",
+            fontFamily: '"LINE Seed Sans TH", sans-serif',
             color: "#1F1D1A",
           }}
         >
@@ -469,13 +469,13 @@ export async function GET(
         height: 1920,
         fonts: [
           {
-            name: "Prompt",
+            name: "LINE Seed Sans TH",
             data: regularFont,
             style: "normal",
             weight: 400,
           },
           {
-            name: "Prompt",
+            name: "LINE Seed Sans TH",
             data: boldFont,
             style: "normal",
             weight: 700,

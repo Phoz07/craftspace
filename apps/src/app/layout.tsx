@@ -1,12 +1,37 @@
 import type { Metadata } from "next";
-import { Prompt } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 
-const prompt = Prompt({
-  weight: ["300", "400", "500", "600", "700"],
-  subsets: ["thai", "latin"],
+const lineSeedSansTH = localFont({
+  src: [
+    {
+      path: "../../public/fonts/LINESeedSansTH_W_Th.woff2",
+      weight: "100",
+      style: "normal",
+    },
+    {
+      path: "../../public/fonts/LINESeedSansTH_W_Rg.woff2",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "../../public/fonts/LINESeedSansTH_W_Bd.woff2",
+      weight: "700",
+      style: "normal",
+    },
+    {
+      path: "../../public/fonts/LINESeedSansTH_W_He.woff2",
+      weight: "800",
+      style: "normal",
+    },
+    {
+      path: "../../public/fonts/LINESeedSansTH_W_XBd.woff2",
+      weight: "900",
+      style: "normal",
+    },
+  ],
   display: "swap",
-  variable: "--font-prompt",
+  variable: "--font-line-seed",
 });
 
 export const metadata: Metadata = {
@@ -29,7 +54,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="th" className={`${prompt.variable} scroll-smooth`}>
+    <html lang="th" className={`${lineSeedSansTH.variable} font-sans scroll-smooth`}>
       <body className="font-sans antialiased min-h-screen bg-[#FBF9F5] text-[#1F1D1A] flex flex-col">
         {children}
       </body>
