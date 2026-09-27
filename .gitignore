@@ -10,3 +10,7 @@ build/
 .env.*.local
 .DS_Store
 Thumbs.db
+.vercel
+.env*
+.neon
+
