@@ -4,13 +4,13 @@
 
 **Blocked by:** 01: Foundation and Pricing Engine Tracer Bullet
 
-**Status:** ready-for-agent
+**Status:** closed
 
-- [ ] Wizard presents a 4-step progression with visual progress bar and step indicators
-- [ ] Step 1 allows selecting Property Type (Condominium, Townhome, House)
-- [ ] Step 2 provides a dual Slider and Number Input for area size (20–250+ sq.m., default 35 sq.m.)
-- [ ] Step 3 provides multi-selection for Decoration Zones (Main Living Area, Master Bedroom, Kitchen, System & Ceiling) with informative microcopy badge explaining the 1-primary-zone baseline
-- [ ] Step 4 allows selecting Material Grade (Standard, Premium, Luxury) with clear material & hardware descriptions
-- [ ] Estimated price range updates with a smooth live ticking animation upon every user interaction
-- [ ] Step 3 disables progression and displays ฿0 if no decoration zones are selected
-- [ ] Displays mandatory legal disclaimer beneath the estimated price range
+- [x] Wizard presents a 4-step progression with visual progress bar and step indicators
+- [x] Step 1 allows selecting Property Type (Condominium, Townhome, House)
+- [x] Step 2 provides a dual Slider and Number Input for area size (20–250+ sq.m., default 35 sq.m.)
+- [x] Step 3 provides multi-selection for Decoration Zones (Main Living Area, Master Bedroom, Kitchen, System & Ceiling) with informative microcopy badge explaining the 1-primary-zone baseline
+- [x] Step 4 allows selecting Material Grade (Standard, Premium, Luxury) with clear material & hardware descriptions
+- [x] Estimated price range updates with a smooth live ticking animation upon every user interaction
+- [x] Step 3 disables progression and displays ฿0 if no decoration zones are selected
+- [x] Displays mandatory legal disclaimer beneath the estimated price range
