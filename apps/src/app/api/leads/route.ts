@@ -3,6 +3,7 @@ import { db } from "@/lib/db";
 import { calculateEstimate, type PropertyType, type DecorationZoneKey, type MaterialGradeKey } from "@/lib/pricing";
 import { generateRefCode } from "@/lib/refCode";
 import { validateLeadSubmission, cleanThaiPhone } from "@/lib/validation";
+import { buildLinePrefilledMessage, buildLineDeepLink } from "@/lib/lineRouting";
 
 export async function POST(request: Request) {
   try {
@@ -70,24 +71,16 @@ export async function POST(request: Request) {
       },
     });
 
-    // Property Label in Thai
-    const propertyLabel =
-      propertyType === "CONDO"
-        ? "คอนโด"
-        : propertyType === "TOWNHOME"
-        ? "ทาวน์โฮม"
-        : "บ้านเดี่ยว";
+    const lineMessage = buildLinePrefilledMessage({
+      refCode,
+      propertyType,
+      areaSqm: Number(areaSqm),
+      materialGrade,
+      estimatedMin: estimate.estimatedMin,
+      estimatedMax: estimate.estimatedMax,
+    });
 
-    // Format human-friendly budget range (e.g. 2.85-3.4 แสน or ฿285,000 – ฿340,000)
-    const minStr = (estimate.estimatedMin / 100_000).toFixed(2);
-    const maxStr = (estimate.estimatedMax / 100_000).toFixed(2);
-
-    const lineMessage = `สวัสดีครับ สนใจปรึกษาแบบตกแต่งห้องตามใบประเมิน ${refCode} (${propertyLabel} ${areaSqm} ตร.ม. เกรด ${materialGrade} งบประเมิน ${minStr}-${maxStr} แสนบาท)`;
-
-    const lineOaId = process.env.NEXT_PUBLIC_LINE_OA_ID || "@craftspace";
-    const lineDeepLink = `https://line.me/R/oaMessage/${encodeURIComponent(
-      lineOaId
-    )}/?text=${encodeURIComponent(lineMessage)}`;
+    const lineDeepLink = buildLineDeepLink(lineMessage);
 
     const cleanRef = refCode.replace("#", "");
     const slipUrl = `/api/slip/${cleanRef}`;

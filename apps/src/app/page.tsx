@@ -13,11 +13,13 @@ import {
   LeadCaptureModal,
   type LeadSubmissionResponse,
 } from "@/components/LeadCaptureModal";
+import { SubmissionSuccessModal } from "@/components/SubmissionSuccessModal";
 
 export default function Home() {
   const [activeEstimateState, setActiveEstimateState] =
     useState<EstimatorState | null>(null);
   const [isLeadModalOpen, setIsLeadModalOpen] = useState(false);
+  const [isSuccessModalOpen, setIsSuccessModalOpen] = useState(false);
   const [submittedLead, setSubmittedLead] =
     useState<LeadSubmissionResponse | null>(null);
 
@@ -29,7 +31,7 @@ export default function Home() {
   const handleLeadCaptureSuccess = (lead: LeadSubmissionResponse) => {
     setIsLeadModalOpen(false);
     setSubmittedLead(lead);
-    // Success view handling (Ticket 07)
+    setIsSuccessModalOpen(true);
   };
 
   return (
@@ -55,6 +57,13 @@ export default function Home() {
         onClose={() => setIsLeadModalOpen(false)}
         estimatorState={activeEstimateState}
         onSuccess={handleLeadCaptureSuccess}
+      />
+
+      {/* Omnichannel LINE Routing & Slip Download Success Modal */}
+      <SubmissionSuccessModal
+        isOpen={isSuccessModalOpen}
+        onClose={() => setIsSuccessModalOpen(false)}
+        lead={submittedLead}
       />
 
       <Footer />

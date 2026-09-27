@@ -36,10 +36,18 @@ export async function GET(
       return new Response("Missing Reference Code", { status: 400 });
     }
 
+    const normalizedRefCode = refCode.startsWith("#") ? refCode : `#${refCode}`;
+
     // Lookup lead in database
-    const lead = await db.lead.findUnique({
-      where: { refCode },
+    let lead = await db.lead.findUnique({
+      where: { refCode: normalizedRefCode },
     });
+
+    if (!lead) {
+      lead = await db.lead.findUnique({
+        where: { refCode },
+      });
+    }
 
     if (!lead) {
       return new Response("Estimate Lead Not Found", { status: 404 });
