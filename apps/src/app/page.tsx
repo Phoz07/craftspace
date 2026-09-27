@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { HeroSection } from "@/components/HeroSection";
+import { PortfolioShowcase } from "@/components/PortfolioShowcase";
 import {
   calculateEstimate,
   type PropertyType,
@@ -287,6 +288,9 @@ export default function Home() {
           </div>
         </section>
         </div>
+
+        {/* Portfolio Showcase with Real Metadata & Multi-category Filtering */}
+        <PortfolioShowcase />
       </main>
 
       <Footer />
