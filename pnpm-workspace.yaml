@@ -2,8 +2,11 @@ packages:
   - "apps"
 
 allowBuilds:
-  sharp: false
-  unrs-resolver: false
+  workerd: false
+  esbuild: true
+  prisma: true
+  "@prisma/client": true
+  "@prisma/engines": true
 catalog:
   vite: npm:@voidzero-dev/vite-plus-core@1.0.0-rc.1
   vite-plus: 1.0.0-rc.1

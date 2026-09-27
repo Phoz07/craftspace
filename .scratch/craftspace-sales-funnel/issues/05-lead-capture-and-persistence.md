@@ -4,11 +4,11 @@
 
 **Blocked by:** 04: Interactive 4-Step Cost Estimator Wizard UI
 
-**Status:** ready-for-agent
+**Status:** closed
 
-- [ ] Value-exchange modal captures Customer Name, Phone Number, and optional LINE ID
-- [ ] Validates Thai phone number format and required fields with friendly error messaging
-- [ ] Generates unique obfuscated Ref ID matching `#CS-YYMM-XXXX` using the 30-character set without confusing characters (0/O, 1/I/l)
-- [ ] Persists lead details, selected zones as JSON, and calculated price ranges to Neon Postgres via Prisma
-- [ ] API endpoint handles errors gracefully and returns the created lead metadata with slip URL and prefilled LINE link
-- [ ] Integration tests verify database insertion and schema compliance
+- [x] Value-exchange modal captures Customer Name, Phone Number, and optional LINE ID
+- [x] Validates Thai phone number format and required fields with friendly error messaging
+- [x] Generates unique obfuscated Ref ID matching `#CS-YYMM-XXXX` using the 30-character set without confusing characters (0/O, 1/I/l)
+- [x] Persists lead details, selected zones as JSON, and calculated price ranges to Neon Postgres via Prisma
+- [x] API endpoint handles errors gracefully and returns the created lead metadata with slip URL and prefilled LINE link
+- [x] Integration tests verify database insertion and schema compliance
