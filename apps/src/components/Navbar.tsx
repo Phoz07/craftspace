@@ -28,17 +28,11 @@ export function Navbar() {
           </a>
           <a
             href="#estimator"
-            className="text-sm font-medium text-[#8F653B] hover:text-[#1F1D1A] transition-colors"
+            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-semibold text-white bg-[#8F653B] hover:bg-[#724E2B] transition-colors shadow-xs"
           >
-            ประเมินราคา
+            <Sparkles className="w-3.5 h-3.5 text-[#DFB978]" />
+            <span>เริ่มประเมินราคา</span>
           </a>
-          <Link
-            href="/admin"
-            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium text-[#5A554E] bg-[#F3EFE6] hover:bg-[#EAE4DA] transition-colors border border-[#E5DED3]"
-          >
-            <Shield className="w-3.5 h-3.5 text-[#8F653B]" />
-            <span className="hidden sm:inline">ระบบฝ่ายขาย</span>
-          </Link>
         </nav>
       </div>
     </header>

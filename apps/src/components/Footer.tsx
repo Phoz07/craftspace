@@ -20,9 +20,8 @@ export function Footer() {
               มุ่งเน้นการสร้างสรรค์พื้นที่พักผ่อนที่ลงตัวระหว่างฟังก์ชันใช้งานและความงามสไตล์
               Japandi & Modern Luxury
             </p>
-            <p className="text-xs text-[#8F653B]">
-              หมายเหตุ: การคำนวณราคาผ่านหน้าเว็บไซต์เป็นการประเมินงบประมาณเบื้องต้นจากสเปกมาตรฐาน
-              ไม่ใช่ใบเสนอราคาผูกมัด (Official Quotation)
+            <p className="text-xs text-[#8F653B] leading-relaxed">
+              หมายเหตุ: ตัวเลขนี้เป็นการประเมินงบประมาณเบื้องต้นจากสเปกมาตรฐาน ไม่ใช่ใบเสนอราคาผูกมัด (Official Quotation) ราคาจริงอาจปรับเปลี่ยนตามสภาพพื้นที่จริงและฟังก์ชันเฉพาะบุคคล
             </p>
           </div>
 
@@ -55,14 +54,6 @@ export function Footer() {
               <br />
               (นัดสำรวจหน้างานล่วงหน้า 1-2 วัน)
             </p>
-            <div className="pt-2">
-              <Link
-                href="/admin"
-                className="text-xs text-[#C89D53] hover:underline inline-flex items-center gap-1"
-              >
-                เข้าสู่ระบบฝ่ายขาย (Admin Portal) &rarr;
-              </Link>
-            </div>
           </div>
         </div>
 

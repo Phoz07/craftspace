@@ -209,7 +209,7 @@ export function PortfolioShowcase() {
                         งบจริง
                       </span>
                       <span className="text-xs font-bold text-[#8F653B]">
-                        ฿{(project.actualBudget / 10_000).toFixed(0)} หมื่น
+                        ฿{project.actualBudget.toLocaleString()}
                       </span>
                     </div>
                   </div>

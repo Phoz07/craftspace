@@ -25,7 +25,25 @@ export function BeforeAfterSlider({
 }: BeforeAfterSliderProps) {
   const [sliderPosition, setSliderPosition] = useState(50);
   const [isDragging, setIsDragging] = useState(false);
+  const [containerWidth, setContainerWidth] = useState<number>(0);
   const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!containerRef.current) return;
+    const updateWidth = () => {
+      if (containerRef.current) {
+        setContainerWidth(containerRef.current.clientWidth);
+      }
+    };
+    updateWidth();
+    const observer = new ResizeObserver(updateWidth);
+    observer.observe(containerRef.current);
+    window.addEventListener("resize", updateWidth);
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("resize", updateWidth);
+    };
+  }, []);
 
   const handleMove = useCallback(
     (clientX: number) => {
@@ -102,9 +120,7 @@ export function BeforeAfterSlider({
           <div
             className="absolute inset-0 w-full h-full"
             style={{
-              width: containerRef.current
-                ? `${containerRef.current.clientWidth}px`
-                : "100vw",
+              width: containerWidth ? `${containerWidth}px` : "100%",
             }}
           >
             <Image

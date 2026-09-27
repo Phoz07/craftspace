@@ -117,17 +117,27 @@ export function PipelineKanbanView({
 
   // Quick sequential stage shift
   const advanceStage = async (lead: LeadRecord, direction: 1 | -1) => {
-    const stageOrder: LeadStatus[] = [
+    const pipelineOrder: LeadStatus[] = [
       "NEW_LEAD",
       "CONTACTED",
       "SITE_SURVEY_SCHEDULED",
       "WON",
-      "LOST",
     ];
-    const currentIndex = stageOrder.indexOf(lead.status);
-    const newIndex = currentIndex + direction;
-    if (newIndex >= 0 && newIndex < stageOrder.length) {
-      await onUpdateStatus(lead.id, stageOrder[newIndex]);
+
+    if (direction === 1) {
+      const currentIndex = pipelineOrder.indexOf(lead.status);
+      if (currentIndex >= 0 && currentIndex < pipelineOrder.length - 1) {
+        await onUpdateStatus(lead.id, pipelineOrder[currentIndex + 1]);
+      }
+    } else {
+      if (lead.status === "LOST") {
+        await onUpdateStatus(lead.id, "NEW_LEAD");
+      } else {
+        const currentIndex = pipelineOrder.indexOf(lead.status);
+        if (currentIndex > 0) {
+          await onUpdateStatus(lead.id, pipelineOrder[currentIndex - 1]);
+        }
+      }
     }
   };
 
@@ -277,7 +287,7 @@ export function PipelineKanbanView({
                                 <ArrowLeft className="w-3 h-3" />
                               </button>
                             )}
-                            {stage.id !== "LOST" && (
+                            {stage.id !== "WON" && stage.id !== "LOST" && (
                               <button
                                 type="button"
                                 onClick={() => advanceStage(lead, 1)}
