@@ -6,13 +6,17 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "test": "vitest run",
     "lint": "biome check",
     "format": "biome format --write"
   },
   "dependencies": {
+    "clsx": "^2.1.1",
+    "lucide-react": "^1.48.0",
     "next": "16.3.6",
     "react": "19.2.8",
-    "react-dom": "19.2.8"
+    "react-dom": "19.2.8",
+    "tailwind-merge": "^3.7.0"
   },
   "devDependencies": {
     "@biomejs/biome": "2.4.2",
@@ -23,7 +27,8 @@
     "babel-plugin-react-compiler": "1.0.0",
     "tailwindcss": "^4",
     "typescript": "^5",
-    "vite-plus": "catalog:"
+    "vite-plus": "catalog:",
+    "vitest": "^5.0.2"
   },
   "packageManager": "pnpm@12.6.0"
 }
